@@ -26,7 +26,7 @@ export default function FloatingNavbar() {
         <a
           href="#hero"
           className="light-focus font-script text-[28px] leading-none text-[var(--plum)]"
-          aria-label="Riya and Arjun wedding home"
+          aria-label={`${wedding.brideFirst} and ${wedding.groomFirst} wedding home`}
         >
           R ✦ A
         </a>

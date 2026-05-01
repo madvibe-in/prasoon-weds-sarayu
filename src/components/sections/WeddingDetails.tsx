@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { FloralDivider, SectionNumber } from "../common/Decor";
+import { FloralDivider } from "../common/Decor";
 import SectionReveal from "../common/SectionReveal";
 import {
   receptionTimeline,
@@ -58,21 +58,21 @@ function TimelineCard({ eyebrow, title, note, items, accent }: TimelineCardProps
             const last = index === items.length - 1;
 
             return (
-              <div key={`${time}-${itemTitle}`} className="grid grid-cols-[64px_1fr] gap-4">
-                <time className="pt-1 text-right font-display text-xl leading-none text-[var(--plum)]">
+              <div key={`${time}-${itemTitle}`} className="grid grid-cols-[104px_1fr] gap-4">
+                <time className="pt-1 text-right font-display text-lg leading-none text-[var(--plum)] sm:text-xl">
                   {time}
                 </time>
-                <div className={`relative pl-8 ${last ? "pb-0" : "pb-7"}`}>
+                <div className={`relative pl-12 ${last ? "pb-0" : "pb-7"}`}>
                   {!last ? (
                     <span
-                      className="absolute left-[15px] top-8 h-[calc(100%-1.5rem)] w-px bg-[rgba(217,182,176,0.46)]"
+                      className="absolute left-[17px] top-9 h-[calc(100%-1.5rem)] w-px bg-[rgba(217,182,176,0.46)]"
                       aria-hidden="true"
                     />
                   ) : null}
                   <span
-                    className={`absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full ${styles.icon}`}
+                    className={`absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full px-2 ${styles.icon}`}
                   >
-                    <Icon size={15} aria-hidden="true" />
+                    <Icon size={16} aria-hidden="true" />
                   </span>
                   <h4 className="font-display text-[24px] font-normal leading-tight text-[var(--plum)]">
                     {itemTitle}
@@ -122,7 +122,6 @@ export default function WeddingDetails() {
       ref={rootRef}
       className="relative overflow-hidden bg-[var(--pearl)] px-4 py-20 md:px-8 md:py-28"
     >
-      <SectionNumber>03</SectionNumber>
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(217,182,176,0.22),transparent_28%),radial-gradient(circle_at_85%_80%,rgba(240,217,191,0.24),transparent_30%)]"
         aria-hidden="true"
@@ -137,7 +136,7 @@ export default function WeddingDetails() {
             Timeline
           </h2>
           <p className="mx-auto mt-5 max-w-xl font-body text-[14px] leading-[1.8] text-[rgba(78,61,66,0.64)] md:text-[15px]">
-            A clear flow for the ceremony and reception, designed to feel graceful on the day and easy for guests to follow.
+            Confirmed timings from the invitation card. Marriage and reception are both at the same venue.
           </p>
         </SectionReveal>
 
@@ -145,14 +144,14 @@ export default function WeddingDetails() {
           <TimelineCard
             eyebrow="Wedding day planning"
             title="Ceremony"
-            note="From morning blessings to dinner with the families."
+            note="Sumuhurtham at Padmashali Kalyana Mandapam."
             items={weddingDayTimeline}
             accent="blush"
           />
           <TimelineCard
             eyebrow="Reception day planning"
             title="Reception"
-            note="An evening of greetings, dinner, music, and celebration."
+            note="Reception at the same venue on the following day."
             items={receptionTimeline}
             accent="champagne"
           />

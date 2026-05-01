@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { Shirt } from "lucide-react";
 import { useEffect, useRef } from "react";
-import { FloralDivider, InstagramGlyph } from "../common/Decor";
+import { FloralDivider } from "../common/Decor";
 import { footerLinks, wedding } from "../../data/weddingData";
 import { useReducedMotionPreference } from "../../hooks/useReducedMotionPreference";
 import { gsap } from "../../lib/gsap";
@@ -39,8 +38,10 @@ export default function ElegantFooter() {
     >
       <div className="mx-auto flex max-w-4xl flex-col items-center">
         <FloralDivider muted className="footer-reveal" />
-        <div className="footer-reveal mt-8 font-script text-[52px] leading-none text-[var(--champagne)]">
-          {wedding.couple}
+        <div className="footer-reveal mt-8 flex flex-col items-center font-script leading-none text-[var(--champagne)]">
+          <span className="text-[52px]">{wedding.brideFirst}</span>
+          <span className="-my-1 font-display text-[24px] italic text-[rgba(240,217,191,0.72)]">&</span>
+          <span className="text-[52px]">{wedding.groomFirst}</span>
         </div>
         <p className="footer-reveal mt-5 font-body text-[13px] uppercase tracking-[0.16em] text-[rgba(255,250,247,0.5)]">
           {wedding.date} - {wedding.city}
@@ -57,14 +58,9 @@ export default function ElegantFooter() {
               whileHover={{ scale: 1.12, rotate: 5 }}
               whileTap={{ scale: 0.96 }}
             >
-              {"Icon" in link ? <link.Icon size={18} aria-hidden="true" /> : <InstagramGlyph />}
+              <link.Icon size={18} aria-hidden="true" />
             </motion.a>
           ))}
-        </div>
-
-        <div className="footer-reveal mt-8 inline-flex items-center gap-2 rounded-full border border-[rgba(240,217,191,0.2)] bg-[rgba(240,217,191,0.1)] px-4 py-2 font-body text-xs text-[rgba(240,217,191,0.8)]">
-          <Shirt size={15} aria-hidden="true" />
-          Dress Code: Traditional & Black Tie
         </div>
 
         <p className="footer-reveal mt-8 font-display text-xl italic text-[rgba(255,250,247,0.6)]">
@@ -73,8 +69,12 @@ export default function ElegantFooter() {
 
         <div className="footer-reveal mt-10 h-px w-full max-w-md bg-[rgba(217,182,176,0.2)]" />
 
-        <p className="footer-reveal mt-8 font-body text-[11px] text-[rgba(255,250,247,0.3)]">
-          Copyright 2027 {wedding.couple} | Made with love in {wedding.city}
+        <p className="footer-reveal mt-8 max-w-md font-body text-[11px] leading-relaxed text-[rgba(255,250,247,0.38)]">
+          Invitation website crafted by madvibe.designer. For custom event invitation websites, call{" "}
+          <a className="dark-focus text-[rgba(240,217,191,0.74)]" href="tel:+919949199787">
+            9949199787
+          </a>
+          .
         </p>
       </div>
     </footer>

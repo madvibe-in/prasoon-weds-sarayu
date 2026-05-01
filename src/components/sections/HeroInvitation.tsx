@@ -54,18 +54,18 @@ export default function HeroInvitation() {
 
     tl
       // Phase 1: envelope interior disappears
-      .to(".envelope-copy", { y: -28, opacity: 0, duration: 0.22, ease: "power2.in" })
-      .to(".envelope-seal", { scale: 0.28, opacity: 0, y: -18, duration: 0.22, ease: "power2.in" }, 0.05)
+      .to(".envelope-copy", { y: -28, opacity: 0, duration: 0.3, ease: "power2.inOut" })
+      .to(".envelope-seal", { scale: 0.6, opacity: 0, y: -18, duration: 0.3, ease: "power2.inOut" }, 0.1)
 
       // Phase 2: flaps open outward
-      .to(".envelope-top-flap", { yPercent: -100, rotateX: -90, opacity: 0.08, duration: 0.62, ease: "power3.inOut" }, 0.18)
-      .to(".envelope-left-fold", { xPercent: -58, opacity: 0, duration: 0.52, ease: "power2.inOut" }, 0.28)
-      .to(".envelope-right-fold", { xPercent: 58, opacity: 0, duration: 0.52, ease: "power2.inOut" }, 0.28)
-      .to(".envelope-bottom-pocket", { yPercent: 52, opacity: 0, duration: 0.52, ease: "power2.inOut" }, 0.3)
+      .to(".envelope-top-flap", { rotateX: -170, duration: 0.8, ease: "power3.inOut" }, 0.2)
+      .to(".envelope-left-fold", { xPercent: -100, duration: 0.7, ease: "power3.inOut" }, 0.3)
+      .to(".envelope-right-fold", { xPercent: 100, duration: 0.7, ease: "power3.inOut" }, 0.3)
+      .to(".envelope-bottom-pocket", { yPercent: 80, duration: 0.7, ease: "power3.inOut" }, 0.4)
 
       // Phase 3: simultaneous cross-dissolve — envelope out + content in, zero gap
-      .to(".envelope-shell", { opacity: 0, duration: 0.48, ease: "power2.out", pointerEvents: "none" }, 0.62)
-      .to(".wedding-card", { opacity: 1, duration: 0.48, ease: "power2.out" }, 0.62)
+      .to(".envelope-shell", { opacity: 0, duration: 0.7, ease: "power2.inOut", pointerEvents: "none" }, 0.8)
+      .to(".wedding-card", { opacity: 1, duration: 0.7, ease: "power2.inOut" }, 0.8)
 
       // Phase 4: stagger the individual content items once container is opaque
       .to(".card-reveal", { y: 0, opacity: 1, stagger: 0.08, duration: 0.36, ease: "power2.out" }, 0.98)
@@ -136,14 +136,29 @@ export default function HeroInvitation() {
       />
 
       {/* ── Envelope ── */}
-      <div className="envelope-shell absolute inset-x-0 top-0 bottom-[-120px] z-10 overflow-hidden bg-[linear-gradient(145deg,#fffdfb_0%,#f7ead9_42%,#ead8c2_100%)]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(255,250,247,0.7),transparent_35%),linear-gradient(180deg,rgba(255,250,247,0.6),rgba(240,217,191,0.22))]" />
+      <div className="envelope-shell absolute inset-x-0 top-0 bottom-[-120px] z-10 overflow-hidden bg-[linear-gradient(145deg,#fff8ee_0%,#f2dfc8_46%,#dec09a_100%)] shadow-[inset_0_0_90px_rgba(78,61,66,0.08)]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_8%,rgba(255,253,249,0.82),transparent_36%),radial-gradient(ellipse_at_50%_72%,rgba(185,136,63,0.16),transparent_46%),linear-gradient(180deg,rgba(255,250,247,0.52),rgba(240,217,191,0.12))]" />
+        <div className="envelope-paper-grain absolute inset-0 opacity-45" />
 
-        <div className="envelope-top-flap absolute inset-x-0 top-0 z-40 h-[60dvh] [backface-visibility:hidden] [clip-path:polygon(0_0,100%_0,50%_100%)] [transform-style:preserve-3d] bg-[linear-gradient(180deg,#fffaf7_0%,#ead8c2_100%)] shadow-[0_18px_52px_rgba(78,61,66,0.12)]" />
-        <div className="envelope-left-fold absolute top-0 bottom-[-120px] left-0 z-30 w-[62vw] [clip-path:polygon(0_0,100%_50%,0_100%)] bg-[linear-gradient(100deg,rgba(217,182,176,0.42),rgba(255,250,247,0.12))]" />
-        <div className="envelope-right-fold absolute top-0 bottom-[-120px] right-0 z-30 w-[62vw] [clip-path:polygon(100%_0,0_50%,100%_100%)] bg-[linear-gradient(260deg,rgba(203,191,215,0.28),rgba(255,250,247,0.08))]" />
-        <div className="envelope-bottom-pocket absolute inset-x-0 bottom-[-120px] z-[35] h-[calc(72dvh+120px)] [clip-path:polygon(0_0,50%_32%,100%_0,100%_100%,0_100%)] bg-[linear-gradient(180deg,#f5e2ca_0%,#fffaf7_44%,#dcc09a_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)]" />
-        <div className="absolute left-1/2 top-1/2 z-50 h-px w-[86vw] max-w-5xl -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(201,168,124,0.55),transparent)]" />
+        {/* Envelope Liner Frame & Corners (Visible when open) */}
+        <div className="absolute inset-x-4 top-4 bottom-[140px] border-[0.5px] border-[rgba(201,168,124,0.3)] sm:inset-x-8 sm:top-8" />
+        <GoldCorner className="absolute left-5 top-5 opacity-40 sm:left-9 sm:top-9" />
+        <GoldCorner className="absolute right-5 top-5 rotate-90 opacity-40 sm:right-9 sm:top-9" />
+
+        <div className="envelope-top-flap absolute inset-x-0 top-0 z-40 h-[62dvh] [backface-visibility:hidden] [clip-path:polygon(0_0,100%_0,100%_65%,50%_100%,0_65%)] [transform-style:preserve-3d] bg-[linear-gradient(180deg,#fffaf4_0%,#f3e4d2_48%,#ddc29f_100%)] shadow-[0_26px_58px_rgba(78,61,66,0.16),inset_0_-1px_0_rgba(133,92,58,0.13)]">
+          {/* Subtle ornate stamp on the top flap */}
+          <div className="absolute top-6 left-1/2 -translate-x-1/2 scale-75 opacity-30 sm:top-8 sm:scale-90">
+            <FloralDivider />
+          </div>
+        </div>
+        <div className="envelope-left-fold absolute top-0 bottom-[-120px] left-0 z-30 w-[12vw] bg-[linear-gradient(90deg,rgba(209,176,169,0.58)_0%,rgba(250,239,226,0.1)_100%)] shadow-[1px_0_10px_rgba(0,0,0,0.05)] sm:w-[8vw]" />
+        <div className="envelope-right-fold absolute top-0 bottom-[-120px] right-0 z-30 w-[12vw] bg-[linear-gradient(-90deg,rgba(203,191,215,0.4)_0%,rgba(250,239,226,0.1)_100%)] shadow-[-1px_0_10px_rgba(0,0,0,0.05)] sm:w-[8vw]" />
+        <div className="envelope-bottom-pocket absolute inset-x-0 bottom-[-120px] z-[35] h-[calc(70dvh+120px)] bg-[linear-gradient(180deg,#f0d8b8_0%,#fff8ef_42%,#e5c99f_100%)] shadow-[0_-12px_36px_rgba(78,61,66,0.15),inset_0_1px_0_rgba(255,255,255,0.74)]">
+          {/* Inner foil frame on the pocket */}
+          <div className="absolute inset-x-4 top-4 bottom-[136px] border-[0.5px] border-[rgba(201,168,124,0.4)] sm:inset-x-8 sm:top-6 sm:bottom-[140px]" />
+          <GoldCorner className="absolute left-5 top-5 opacity-50 sm:left-9 sm:top-7" />
+          <GoldCorner className="absolute right-5 top-5 rotate-90 opacity-50 sm:right-9 sm:top-7" />
+        </div>
 
         <FloatingPetal className="hero-petal absolute left-[9%] top-[16%] z-[55] h-5 w-4 -rotate-12 opacity-60" />
         <FloatingPetal className="hero-petal absolute right-[11%] top-[19%] z-[55] h-5 w-4 rotate-12 opacity-60" />
@@ -151,60 +166,77 @@ export default function HeroInvitation() {
         <FloatingPetal className="hero-petal absolute bottom-[19%] right-[14%] z-[55] h-5 w-4 -rotate-6 opacity-55" />
 
         {/* Names shown on closed envelope */}
-        <div className="absolute inset-x-0 top-[26%] z-[60] flex justify-center px-6">
+        <div className="absolute inset-x-0 top-[14%] z-[60] flex justify-center px-6 sm:top-[16%]">
           <div className="envelope-copy flex w-full max-w-[340px] flex-col items-center text-center">
-            <p className="font-body text-[9px] font-semibold uppercase tracking-[0.24em] text-[rgba(78,61,66,0.48)]">
+            <div className="mb-5 h-px w-24 bg-[linear-gradient(90deg,transparent,rgba(133,92,58,0.22),transparent)]" aria-hidden="true" />
+            <p className="font-body text-[8px] font-semibold uppercase tracking-[0.28em] text-[rgba(78,61,66,0.46)] [text-shadow:0_1px_0_rgba(255,255,255,0.58)]">
               Together with their families
             </p>
-            <p className="mt-4 font-script text-[54px] leading-none text-[var(--plum)] drop-shadow-[0_1px_0_rgba(255,255,255,0.72)] sm:text-[68px]">
+            <p className="mt-8 font-script text-[52px] leading-[0.88] text-[rgba(78,61,66,0.88)] drop-shadow-[0_1px_0_rgba(255,255,255,0.78)] sm:text-[74px]">
               {wedding.brideFirst}
             </p>
-            <span className="-my-1 font-display text-[24px] italic leading-none text-[rgba(78,61,66,0.62)]">
-              &
+            <span className="my-4 font-display text-[22px] italic leading-none text-[rgba(133,92,58,0.58)]">
+              weds
             </span>
-            <p className="font-script text-[54px] leading-none text-[var(--plum)] drop-shadow-[0_1px_0_rgba(255,255,255,0.72)] sm:text-[68px]">
+            <p className="font-script text-[52px] leading-[0.88] text-[rgba(78,61,66,0.88)] drop-shadow-[0_1px_0_rgba(255,255,255,0.78)] sm:text-[74px]">
               {wedding.groomFirst}
             </p>
-            <p className="mt-6 font-body text-[9px] font-semibold uppercase tracking-[0.26em] text-[rgba(78,61,66,0.48)]">
-              {wedding.date}
-            </p>
+            <div className="mt-6 h-px w-20 bg-[linear-gradient(90deg,transparent,rgba(133,92,58,0.18),transparent)]" aria-hidden="true" />
           </div>
         </div>
 
         {/* Tap-to-open seal button */}
-        <div className="absolute inset-x-0 top-[60%] z-[65] flex justify-center">
+        <div className="absolute inset-x-0 top-[62dvh] z-[65] flex justify-center -translate-y-1/2">
           <button
             type="button"
             onClick={openEnvelope}
-            className="envelope-seal light-focus flex h-14 w-14 items-center justify-center rounded-full border border-[rgba(255,250,247,0.78)] bg-[linear-gradient(145deg,#e8cb91,#b9883f)] shadow-[0_16px_36px_rgba(78,61,66,0.24),inset_0_0_0_4px_rgba(255,250,247,0.17)] transition-transform duration-300 active:scale-95 sm:h-[72px] sm:w-[72px]"
+            className="envelope-seal wax-seal light-focus relative isolate flex h-16 w-16 items-center justify-center rounded-full border border-[rgba(255,250,247,0.62)] bg-[radial-gradient(circle_at_34%_28%,#f5d99e_0%,#d1a45d_34%,#a97831_78%,#81551f_100%)] shadow-[0_12px_24px_rgba(78,61,66,0.4),inset_0_2px_4px_rgba(255,255,255,0.38),inset_0_-8px_16px_rgba(86,48,18,0.22)] transition-transform duration-300 hover:scale-[1.04] active:scale-95 sm:h-[78px] sm:w-[78px]"
             aria-label="Open wedding invitation"
           >
-            <span className="font-display text-[8px] font-semibold uppercase tracking-[0.18em] text-[rgba(70,42,20,0.78)]">
+            <span className="absolute inset-[9px] rounded-full border border-[rgba(88,51,20,0.28)] shadow-[inset_0_1px_3px_rgba(255,250,247,0.28)]" aria-hidden="true" />
+            <span className="relative z-10 font-display text-[8px] font-bold uppercase tracking-[0.2em] text-[rgba(70,42,20,0.82)] [text-shadow:0_1px_0_rgba(255,250,247,0.28)] sm:text-[9px]">
               Open
             </span>
           </button>
         </div>
+
+        {/* Date shown on the lower portion of the envelope */}
+        <div className="absolute inset-x-0 top-[76dvh] z-[60] flex justify-center px-6">
+          <div className="envelope-copy flex w-full flex-col items-center text-center">
+            <p className="font-body text-[9.5px] font-semibold uppercase tracking-[0.28em] text-[rgba(78,61,66,0.65)] [text-shadow:0_1px_0_rgba(255,255,255,0.65)]">
+              {wedding.date}
+            </p>
+            <div className="mt-4 h-px w-16 bg-[linear-gradient(90deg,transparent,rgba(133,92,58,0.2),transparent)]" aria-hidden="true" />
+          </div>
+        </div>
       </div>
 
       {/* ── Revealed content — overlays the bg image directly ── */}
+      <div
+        className={`wedding-card pointer-events-none absolute inset-x-0 top-0 z-20 flex justify-center px-6 pt-5 sm:pt-6 ${prefersReducedMotion ? "opacity-100" : "opacity-0"
+          }`}
+      >
+        <div
+          className="absolute inset-x-0 top-[-10px] h-[92px] bg-[linear-gradient(180deg,rgba(2,1,0,0.9)_0%,rgba(4,2,0,0.68)_46%,rgba(4,2,0,0)_100%)] sm:h-[108px]"
+          aria-hidden="true"
+        />
+        <div className="card-reveal relative flex w-full max-w-[360px] items-center justify-center gap-2 sm:max-w-[460px] sm:gap-4">
+          <div className="h-px w-5 bg-[linear-gradient(90deg,transparent,rgba(201,168,124,0.5))] sm:w-12" />
+          <p className="whitespace-nowrap font-display text-[14px] font-semibold uppercase leading-none tracking-[0.16em] text-[rgba(240,217,191,0.88)] [text-shadow:0_2px_16px_rgba(201,168,124,0.24)] sm:text-[18px] sm:tracking-[0.22em]">
+            Wedding Invitation
+          </p>
+          <div className="h-px w-5 bg-[linear-gradient(90deg,rgba(201,168,124,0.5),transparent)] sm:w-12" />
+        </div>
+      </div>
+
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col items-center justify-end pb-10 sm:inset-0 sm:justify-center sm:pb-0">
         <article
-          className={`wedding-card relative flex w-full max-w-[360px] flex-col items-center px-6 text-center sm:max-w-[420px] sm:px-8 ${
-            prefersReducedMotion ? "opacity-100" : "opacity-0"
-          }`}
+          className={`wedding-card relative flex w-full max-w-[360px] flex-col items-center px-6 text-center sm:max-w-[420px] sm:px-8 ${prefersReducedMotion ? "opacity-100" : "opacity-0"
+            }`}
         >
           {/* Decorative gold corners — hidden on mobile, shown sm+ */}
           <GoldCorner className="pointer-events-none absolute -left-2 -top-6 hidden opacity-75 sm:block sm:-left-8 sm:-top-8" />
           <GoldCorner className="pointer-events-none absolute -bottom-6 -right-2 hidden rotate-180 opacity-75 sm:block sm:-bottom-8 sm:-right-8" />
-
-          {/* "Wedding Invitation" label row */}
-          <div className="card-reveal mb-5 flex items-center gap-3 sm:mb-7 sm:gap-4">
-            <div className="h-px w-8 bg-[linear-gradient(90deg,transparent,rgba(201,168,124,0.5))] sm:w-12" />
-            <p className="font-body text-[8px] font-semibold uppercase tracking-[0.3em] text-[rgba(201,168,124,0.7)]">
-              Wedding Invitation
-            </p>
-            <div className="h-px w-8 bg-[linear-gradient(90deg,rgba(201,168,124,0.5),transparent)] sm:w-12" />
-          </div>
 
           {/* Couple names */}
           <h1 className="card-reveal flex flex-col items-center">
@@ -212,7 +244,7 @@ export default function HeroInvitation() {
               {wedding.brideFirst}
             </span>
             <span className="font-display text-[22px] italic leading-none text-[rgba(201,168,124,0.68)] sm:text-[28px]">
-              &
+              weds
             </span>
             <span className="font-script text-[64px] leading-none text-white [text-shadow:0_3px_24px_rgba(201,168,124,0.2)] sm:text-[88px] md:text-[104px]">
               {wedding.groomFirst}
@@ -226,8 +258,14 @@ export default function HeroInvitation() {
 
           {/* Date */}
           <div className="card-reveal mt-5 sm:mt-7">
-            <p className="font-body text-[9px] font-semibold uppercase tracking-[0.28em] text-[rgba(201,168,124,0.76)]">
+            <p className="font-body text-[12px] font-semibold uppercase tracking-[0.26em] text-[rgba(240,217,191,0.84)] sm:text-[14px]">
               {wedding.date}
+            </p>
+            <p className="mt-1 font-body text-[9px] font-semibold uppercase tracking-[0.2em] text-[rgba(240,217,191,0.66)] sm:text-[10px]">
+              Sumuhurtham at {wedding.muhurthamTime}
+            </p>
+            <p className="mt-2 font-script text-[34px] leading-none text-[rgba(240,217,191,0.9)] [text-shadow:0_3px_22px_rgba(201,168,124,0.2)] sm:text-[42px]">
+              Save the date
             </p>
           </div>
 
@@ -242,21 +280,6 @@ export default function HeroInvitation() {
 
           {/* Rule */}
           <div className="card-reveal mt-6 h-px w-20 bg-[linear-gradient(90deg,transparent,rgba(201,168,124,0.28),transparent)] sm:mt-8" />
-
-          {/* Maps CTA */}
-          <div className="card-reveal mt-5 sm:mt-6">
-            <motion.a
-              href={wedding.mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-[rgba(201,168,124,0.33)] px-7 py-2.5 font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[rgba(201,168,124,0.8)] backdrop-blur-[2px] transition-all duration-300 hover:border-[rgba(201,168,124,0.6)] hover:bg-[rgba(201,168,124,0.07)] hover:text-[rgba(240,217,191,1)] sm:px-8 sm:py-3"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <MapPin size={11} aria-hidden="true" />
-              View on Maps
-            </motion.a>
-          </div>
         </article>
       </div>
 

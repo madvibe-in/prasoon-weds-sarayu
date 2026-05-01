@@ -70,7 +70,7 @@ export default function CountdownSection() {
 
         <div className="mx-auto mt-10 h-px max-w-sm bg-[linear-gradient(90deg,transparent,rgba(201,168,124,0.6),transparent)]" />
         <p className="mx-auto mt-8 max-w-xl font-display text-2xl italic leading-tight text-[rgba(78,61,66,0.72)] md:text-3xl">
-          {wedding.date} at {wedding.venue}
+          {wedding.date} at {wedding.muhurthamTime} - {wedding.venue}
         </p>
       </SectionReveal>
     </section>

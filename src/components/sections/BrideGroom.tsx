@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import { useEffect, useRef } from "react";
-import { BotanicalAccent, FloralDivider, SectionNumber } from "../common/Decor";
+import { BotanicalAccent, FloralDivider } from "../common/Decor";
 import SectionHeading from "../common/SectionHeading";
 import SectionReveal from "../common/SectionReveal";
 import { people, type Person } from "../../data/weddingData";
@@ -131,7 +131,6 @@ export default function BrideGroom() {
       ref={rootRef}
       className="section-pad relative overflow-hidden bg-[linear-gradient(160deg,#f8f2ef_0%,#fffaf7_50%,#f0e8f4_100%)] px-4 md:px-8"
     >
-      <SectionNumber>02</SectionNumber>
       <BotanicalAccent className="botanical-scroll absolute left-5 top-12 opacity-80" />
       <BotanicalAccent className="botanical-scroll absolute bottom-16 right-5 rotate-180 opacity-80" />
 

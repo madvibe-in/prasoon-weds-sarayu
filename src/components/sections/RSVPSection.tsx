@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { SectionNumber } from "../common/Decor";
 import { wedding } from "../../data/weddingData";
 import { useReducedMotionPreference } from "../../hooks/useReducedMotionPreference";
 import { gsap } from "../../lib/gsap";
@@ -53,7 +52,6 @@ export default function RSVPSection() {
       ref={rootRef}
       className="section-pad pattern-dots relative overflow-hidden bg-[var(--plum)] px-4 text-center md:px-8"
     >
-      <SectionNumber>05</SectionNumber>
       <div className="relative z-10 mx-auto max-w-4xl">
         <div className="rsvp-title-block">
           <div className="font-script text-[72px] leading-none text-[var(--champagne)] [text-shadow:0_0_40px_rgba(240,217,191,0.4)]">

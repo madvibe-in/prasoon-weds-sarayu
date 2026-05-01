@@ -1,27 +1,15 @@
 import type { LucideIcon } from "lucide-react";
 import {
   BedDouble,
-  Camera,
+  Bike,
   CalendarClock,
   Car,
   Clock,
-  Flower2,
-  Gift,
-  GlassWater,
   Heart,
-  Mail,
   MapPin,
-  Music,
   Navigation,
   Phone,
-  Plane,
-  Shirt,
-  Sparkles,
-  Sun,
-  Train,
-  Users,
-  Utensils,
-  Wine
+  Sparkles
 } from "lucide-react";
 
 export type Accent = "sage" | "lavender" | "champagne" | "blush" | "plum";
@@ -35,7 +23,6 @@ export type EventCard = {
   detail: string;
   Icon: LucideIcon;
   accent: Accent;
-  dressCode?: boolean;
 };
 
 export type InfoPill = {
@@ -73,27 +60,28 @@ export type ScheduleItem = {
 };
 
 export const wedding = {
-  couple: "Riya & Arjun",
-  brideFirst: "Riya",
-  groomFirst: "Arjun",
-  brideFull: "Riya Sharma",
-  groomFull: "Arjun Mehta",
-  date: "February 14, 2027",
-  datePill: "14 / 02 / 2027",
-  dateLong: "Sunday, the Fourteenth of February, Two Thousand and Twenty-Seven",
-  venue: "The Grand Leela Palace",
-  city: "Hyderabad",
-  venueLine: "The Grand Leela Palace, Hyderabad",
-  targetDate: "2027-02-14T17:00:00+05:30",
-  rsvpDeadline: "January 1, 2027",
-  email: "riyaarjun2027@gmail.com",
-  phone: "+919999999999",
+  couple: "Sarayu & Prasoon",
+  brideFirst: "Sarayu",
+  groomFirst: "Prasoon",
+  brideFull: "Sarayu",
+  groomFull: "Prasoon",
+  date: "May 10, 2026",
+  datePill: "10 / 05 / 2026",
+  dateLong: "Sunday, the Tenth of May, Two Thousand and Twenty-Six",
+  muhurthamTime: "10:25 AM",
+  venue: "Padmashali Kalyana Mandapam",
+  city: "New Shyampet, Hanmakonda",
+  venueLine: "Padmashali Kalyana Mandapam, New Shyampet, Hanmakonda",
+  targetDate: "2026-05-10T10:25:00+05:30",
+  rsvpDeadline: "May 1, 2026",
+  email: "sarayuprasoon2026@gmail.com",
+  phone: "+917396171820",
   heroImage: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600",
   venueImage: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1400",
   mapEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.298!2d78.4306!3d17.4065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9172a3b5b8c5%3A0x1234567890abcdef!2sThe+Leela+Palace+Hyderabad!5e0!3m2!1sen!2sin!4v1234567890",
+    "https://www.google.com/maps?q=17.983364,79.562731&output=embed",
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=The%20Grand%20Leela%20Palace%20Hyderabad"
+    "https://www.google.com/maps/search/?api=1&query=Padmashali%20Kalyana%20Mandapam%2C%20New%20Shyampet%2C%20Hanmakonda%20%2817.983364%2C%2079.562731%29"
 } as const;
 
 export const navItems = [
@@ -105,72 +93,31 @@ export const navItems = [
 
 export const eventCards: EventCard[] = [
   {
-    label: "MEHENDI",
-    name: "Mehendi Evening",
-    date: "February 12, 6:00 PM",
-    location: "Garden Terrace, Leela",
-    description: "An evening of henna, laughter, and the warmth of loved ones",
-    detail: "Henna artists arrive from 5:30 PM",
-    Icon: Flower2,
-    accent: "sage"
-  },
-  {
-    label: "SANGEET",
-    name: "Sangeet Night",
-    date: "February 13, 7:00 PM",
-    location: "Grand Ballroom, Leela",
-    description: "Dance the night away as two families become one",
-    detail: "Dinner and performances through the evening",
-    Icon: Music,
-    accent: "lavender"
-  },
-  {
-    label: "HALDI",
-    name: "Haldi Ceremony",
-    date: "February 14, 10:00 AM",
-    location: "Poolside Pavilion",
-    description: "A golden morning ritual blessed by family and tradition",
-    detail: "Pastel Indian daywear recommended",
-    Icon: Sun,
-    accent: "champagne"
-  },
-  {
-    label: "CEREMONY",
-    name: "Wedding Ceremony",
-    date: "February 14, 6:30 PM",
-    location: "Royal Mandap, Leela",
-    description: "The sacred union of two souls under a canopy of marigolds",
-    detail: "Please be seated by 6:15 PM",
+    label: "MARRIAGE",
+    name: "Sumuhurtham",
+    date: "May 10, 10:25 AM",
+    location: "Padmashali Kalyana Mandapam",
+    description: "The marriage of Sarayu and Prasoon",
+    detail: "Dhanishta Nakshathram - Abhijith Lagnam",
     Icon: Heart,
     accent: "blush"
   },
   {
     label: "RECEPTION",
-    name: "Reception Dinner",
-    date: "February 14, 9:00 PM",
-    location: "Leela Terrace",
-    description: "A night of celebration, stars, and timeless memories",
-    detail: "Toast, dinner, and dancing",
+    name: "Reception",
+    date: "May 11, 12:30 PM onwards",
+    location: "Padmashali Kalyana Mandapam",
+    description: "Reception at the same venue",
+    detail: "Family blessings and greetings",
     Icon: Sparkles,
     accent: "plum"
-  },
-  {
-    label: "DRESS CODE",
-    name: "Dress Code",
-    date: "All Events",
-    location: "Traditional & Black Tie",
-    description: "Ceremony: Traditional Indian formals. Reception: Black tie optional",
-    detail: "Ceremony palette and evening palette below",
-    Icon: Shirt,
-    accent: "sage",
-    dressCode: true
   }
 ];
 
 export const infoPills: InfoPill[] = [
   {
     Icon: CalendarClock,
-    text: "RSVP by January 1, 2027"
+    text: "RSVP by May 1, 2026"
   },
   {
     Icon: BedDouble,
@@ -181,24 +128,24 @@ export const infoPills: InfoPill[] = [
 export const people: Person[] = [
   {
     role: "Bride",
-    name: "Riya Sharma",
+    name: "Sarayu",
     tagline: "The Dreamer",
     description:
-      "Riya brings poetry to the ordinary and warmth to every room she enters. She believes the best evenings end with sunset skies, family stories, and one more cup of chai.",
+      "Sarayu brings poetry to the ordinary and warmth to every room she enters. She believes the best evenings end with sunset skies, family stories, and one more cup of chai.",
     favorites: ["Sunsets", "Poetry", "Chai"],
-    signature: "Riya",
+    signature: "Sarayu",
     accent: "blush",
     image: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800",
     alt: "Bride in elegant traditional attire with soft natural light"
   },
   {
     role: "Groom",
-    name: "Arjun Mehta",
+    name: "Prasoon",
     tagline: "The Adventurer",
     description:
-      "Arjun is happiest chasing mountain roads, collecting old songs, and making everyone feel included. His calm humor has been Riya's favorite place to return to since 2021.",
+      "Prasoon is happiest chasing mountain roads, collecting old songs, and making everyone feel included. His calm humor has been Sarayu's favorite place to return to since 2021.",
     favorites: ["Mountains", "Music", "Coffee"],
-    signature: "Arjun",
+    signature: "Prasoon",
     accent: "lavender",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
     alt: "Groom portrait in a tailored suit with a warm smile"
@@ -258,104 +205,41 @@ export const galleryImages: GalleryImage[] = [
 
 export const weddingDayTimeline: ScheduleItem[] = [
   {
-    time: "10:00",
-    title: "Haldi Blessings",
-    detail: "A golden morning with family rituals at the poolside pavilion.",
-    Icon: Sun
-  },
-  {
-    time: "15:30",
-    title: "Guest Welcome",
-    detail: "Tea, coolers, and family greetings in the royal lawns.",
-    Icon: Users
-  },
-  {
-    time: "17:00",
-    title: "Ceremony",
-    detail: "The sacred vows begin under the floral mandap.",
+    time: "10:25 AM",
+    title: "Marriage",
+    detail: "Sumuhurtham: Dhanishta Nakshathram - Abhijith Lagnam.",
     Icon: Heart
-  },
-  {
-    time: "18:30",
-    title: "Portraits",
-    detail: "Family photographs and couple portraits near the garden arches.",
-    Icon: Camera
-  },
-  {
-    time: "19:30",
-    title: "Wedding Dinner",
-    detail: "A seated vegetarian dinner curated for both families.",
-    Icon: Utensils
   }
 ];
 
 export const receptionTimeline: ScheduleItem[] = [
   {
-    time: "20:30",
-    title: "Reception Opens",
-    detail: "Cocktails, mocktails, and warm welcomes on the terrace.",
-    Icon: GlassWater
-  },
-  {
-    time: "21:00",
-    title: "Grand Entry",
-    detail: "Riya and Arjun arrive for blessings, greetings, and photos.",
+    time: "12:30 PM onwards",
+    title: "Reception",
+    detail: "Monday, May 11, 2026 at the same venue.",
     Icon: Sparkles
-  },
-  {
-    time: "21:30",
-    title: "Toast & Dinner",
-    detail: "Family toasts followed by dinner service.",
-    Icon: Wine
-  },
-  {
-    time: "22:30",
-    title: "Music & Dance",
-    detail: "The dance floor opens for an evening celebration.",
-    Icon: Music
-  },
-  {
-    time: "23:30",
-    title: "Farewell Favors",
-    detail: "Sweet boxes and thank-you favors for every guest.",
-    Icon: Gift
   }
 ];
 
 export const travelRows: TravelRow[] = [
   {
     Icon: Car,
-    text: "Valet parking available"
+    text: "Parking available near the venue"
   },
   {
-    Icon: Plane,
-    text: "30 min from Rajiv Gandhi International Airport"
-  },
-  {
-    Icon: Train,
-    text: "15 min from Hyderabad Deccan Station"
+    Icon: Bike,
+    text: "Use Google Maps for the best route"
   }
 ];
 
 export const venueAddress = [
-  "The Grand Leela Palace",
-  "Banjara Hills, Hyderabad",
-  "Telangana 500034, India"
+  "New Shyampet, Hanmakonda",
+  "Telangana, India"
 ] as const;
 
 export const footerLinks = [
   {
-    label: "Instagram",
-    href: "#",
-    kind: "instagram"
-  },
-  {
-    label: "Email Riya and Arjun",
-    href: `mailto:${wedding.email}`,
-    Icon: Mail
-  },
-  {
-    label: "Call Riya and Arjun",
+    label: "Call Sarayu and Prasoon",
     href: `tel:${wedding.phone}`,
     Icon: Phone
   }

@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { SectionNumber } from "../common/Decor";
 import SectionHeading from "../common/SectionHeading";
 import { galleryImages } from "../../data/weddingData";
 import { useReducedMotionPreference } from "../../hooks/useReducedMotionPreference";
@@ -73,7 +72,6 @@ export default function PhotoGallery() {
       ref={rootRef}
       className="section-pad relative overflow-hidden bg-[var(--ivory)] px-4 md:px-8"
     >
-      <SectionNumber>03</SectionNumber>
       <div className="relative z-10 mx-auto max-w-7xl">
         <SectionHeading label="Our Moments" title="A Lifetime of Frames" />
 

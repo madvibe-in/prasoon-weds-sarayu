@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink, MapPin, Navigation } from "lucide-react";
 import { useEffect, useRef } from "react";
-import { SectionNumber } from "../common/Decor";
 import SectionReveal from "../common/SectionReveal";
 import { travelRows, venueAddress, wedding } from "../../data/weddingData";
 import { useReducedMotionPreference } from "../../hooks/useReducedMotionPreference";
@@ -27,17 +26,6 @@ export default function VenueMap() {
           start: "top 80%"
         }
       });
-
-      gsap.to(".venue-image", {
-        scale: 1.08,
-        ease: "none",
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true
-        }
-      });
     }, rootRef);
 
     return () => ctx.revert();
@@ -49,7 +37,6 @@ export default function VenueMap() {
       ref={rootRef}
       className="relative overflow-hidden bg-[var(--ivory)] px-4 py-20 md:px-8 md:py-28"
     >
-      <SectionNumber>02</SectionNumber>
       <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[linear-gradient(180deg,var(--pearl),rgba(248,242,239,0))]" />
 
       <div className="relative z-10 mx-auto max-w-3xl">
@@ -67,19 +54,6 @@ export default function VenueMap() {
           whileHover={{ y: -4 }}
           transition={{ duration: 0.28, ease: "easeOut" }}
         >
-          <div className="relative h-[236px] overflow-hidden sm:h-[320px]">
-            <img
-              src={wedding.venueImage}
-              alt="Elegant outdoor wedding ceremony venue"
-              loading="lazy"
-              className="venue-image h-full w-full object-cover object-center"
-            />
-            <div
-              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(32,24,28,0.04)_0%,rgba(32,24,28,0.22)_100%)]"
-              aria-hidden="true"
-            />
-          </div>
-
           <div className="bg-[linear-gradient(90deg,#eee1cf,#d8c5aa)] px-6 py-3 text-center">
             <p className="font-display text-[15px] uppercase tracking-[0.12em] text-[var(--plum)]">
               Location
@@ -102,10 +76,13 @@ export default function VenueMap() {
                 </span>
               ))}
             </address>
+            <p className="mx-auto mt-4 max-w-sm font-display text-xl italic leading-tight text-[rgba(78,61,66,0.68)]">
+              Marriage and reception are both hosted at this venue.
+            </p>
 
             <div className="mx-auto my-7 h-px max-w-xs bg-[linear-gradient(90deg,transparent,rgba(217,182,176,0.62),transparent)]" />
 
-            <div className="grid gap-3 text-left sm:grid-cols-3">
+            <div className="grid gap-3 text-left sm:grid-cols-2">
               {travelRows.map(({ Icon, text }) => (
                 <div
                   key={text}

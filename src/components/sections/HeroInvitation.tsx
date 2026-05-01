@@ -117,7 +117,7 @@ export default function HeroInvitation() {
     <section
       id="hero"
       ref={rootRef}
-      className="relative h-[100dvh] min-h-[100svh] overflow-hidden"
+      className="relative h-[100svh] overflow-hidden"
     >
       {/* Portrait bg — anchored top so subjects stay in frame on mobile */}
       <div
@@ -225,12 +225,9 @@ export default function HeroInvitation() {
           </div>
 
           {/* Date */}
-          <div className="card-reveal mt-5 space-y-1 sm:mt-7 sm:space-y-1.5">
+          <div className="card-reveal mt-5 sm:mt-7">
             <p className="font-body text-[9px] font-semibold uppercase tracking-[0.28em] text-[rgba(201,168,124,0.76)]">
               {wedding.date}
-            </p>
-            <p className="font-display text-[17px] italic leading-snug text-[rgba(255,250,247,0.65)] sm:text-[21px]">
-              {wedding.dateLong}
             </p>
           </div>
 

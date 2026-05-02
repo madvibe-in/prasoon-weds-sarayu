@@ -55,7 +55,7 @@ export default function RSVPSection() {
       <div className="relative z-10 mx-auto max-w-4xl">
         <div className="rsvp-title-block">
           <div className="font-script text-[72px] leading-none text-[var(--champagne)] [text-shadow:0_0_40px_rgba(240,217,191,0.4)]">
-            R ✦ A
+            P ✦ S
           </div>
           <p className="mt-6 font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--blush)]">
             You're Invited

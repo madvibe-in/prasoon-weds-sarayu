@@ -39,9 +39,9 @@ export default function ElegantFooter() {
       <div className="mx-auto flex max-w-4xl flex-col items-center">
         <FloralDivider muted className="footer-reveal" />
         <div className="footer-reveal mt-8 flex flex-col items-center font-script leading-none text-[var(--champagne)]">
-          <span className="text-[52px]">{wedding.brideFirst}</span>
-          <span className="-my-1 font-display text-[24px] italic text-[rgba(240,217,191,0.72)]">&</span>
           <span className="text-[52px]">{wedding.groomFirst}</span>
+          <span className="-my-1 font-display text-[24px] italic text-[rgba(240,217,191,0.72)]">&</span>
+          <span className="text-[52px]">{wedding.brideFirst}</span>
         </div>
         <p className="footer-reveal mt-5 font-body text-[13px] uppercase tracking-[0.16em] text-[rgba(255,250,247,0.5)]">
           {wedding.date} - {wedding.city}

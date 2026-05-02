@@ -60,7 +60,7 @@ export type ScheduleItem = {
 };
 
 export const wedding = {
-  couple: "Sarayu & Prasoon",
+  couple: "Prasoon & Sarayu",
   brideFirst: "Sarayu",
   groomFirst: "Prasoon",
   brideFull: "Sarayu",
@@ -97,7 +97,7 @@ export const eventCards: EventCard[] = [
     name: "Sumuhurtham",
     date: "May 10, 10:25 AM",
     location: "Padmashali Kalyana Mandapam",
-    description: "The marriage of Sarayu and Prasoon",
+    description: "The marriage of Prasoon and Sarayu",
     detail: "Dhanishta Nakshathram - Abhijith Lagnam",
     Icon: Heart,
     accent: "blush"
@@ -127,18 +127,6 @@ export const infoPills: InfoPill[] = [
 
 export const people: Person[] = [
   {
-    role: "Bride",
-    name: "Sarayu",
-    tagline: "The Dreamer",
-    description:
-      "Sarayu brings poetry to the ordinary and warmth to every room she enters. She believes the best evenings end with sunset skies, family stories, and one more cup of chai.",
-    favorites: ["Sunsets", "Poetry", "Chai"],
-    signature: "Sarayu",
-    accent: "blush",
-    image: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800",
-    alt: "Bride in elegant traditional attire with soft natural light"
-  },
-  {
     role: "Groom",
     name: "Prasoon",
     tagline: "The Adventurer",
@@ -149,6 +137,18 @@ export const people: Person[] = [
     accent: "lavender",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
     alt: "Groom portrait in a tailored suit with a warm smile"
+  },
+  {
+    role: "Bride",
+    name: "Sarayu",
+    tagline: "The Dreamer",
+    description:
+      "Sarayu brings poetry to the ordinary and warmth to every room she enters. She believes the best evenings end with sunset skies, family stories, and one more cup of chai.",
+    favorites: ["Sunsets", "Poetry", "Chai"],
+    signature: "Sarayu",
+    accent: "blush",
+    image: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800",
+    alt: "Bride in elegant traditional attire with soft natural light"
   }
 ];
 
@@ -171,7 +171,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?w=600",
-    alt: "Bride and groom in a softly lit portrait"
+    alt: "Groom and bride in a softly lit portrait"
   },
   {
     src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600",
@@ -187,7 +187,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600",
-    alt: "Bride and groom walking through a garden path"
+    alt: "Groom and bride walking through a garden path"
   },
   {
     src: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=600",
@@ -239,7 +239,7 @@ export const venueAddress = [
 
 export const footerLinks = [
   {
-    label: "Call Sarayu and Prasoon",
+    label: "Call Prasoon and Sarayu",
     href: `tel:${wedding.phone}`,
     Icon: Phone
   }

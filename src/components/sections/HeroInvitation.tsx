@@ -31,15 +31,43 @@ export default function HeroInvitation() {
   const rootRef = useRef<HTMLElement | null>(null);
   const prefersReducedMotion = useReducedMotionPreference();
   const hasOpenedRef = useRef(false);
+  const musicRef = useRef<HTMLAudioElement | null>(null);
+  const musicFadeRef = useRef<ReturnType<typeof gsap.to> | null>(null);
 
   const unlockScroll = () => {
     document.body.style.overflow = "";
     document.documentElement.style.overflow = "";
   };
 
+  const playWeddingMusic = () => {
+    let music = musicRef.current;
+
+    if (!music) {
+      music = new Audio("/bg-song.mp3");
+      music.preload = "auto";
+      music.loop = true;
+      music.volume = 0;
+      musicRef.current = music;
+    }
+
+    music.volume = 0;
+
+    void music.play().then(() => {
+      musicFadeRef.current?.kill();
+      musicFadeRef.current = gsap.to(music, {
+        volume: 0.3,
+        duration: 10,
+        ease: "power1.inOut"
+      });
+    }).catch(() => {
+      // Browsers can still block audio in some modes; the invitation should continue opening.
+    });
+  };
+
   const openEnvelope = () => {
     if (hasOpenedRef.current) return;
     hasOpenedRef.current = true;
+    playWeddingMusic();
 
     if (prefersReducedMotion) {
       gsap.set(".envelope-shell", { opacity: 0, pointerEvents: "none" });
@@ -78,7 +106,11 @@ export default function HeroInvitation() {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
-    return unlockScroll; // safety cleanup on unmount
+    return () => {
+      unlockScroll();
+      musicFadeRef.current?.kill();
+      musicRef.current?.pause();
+    };
   }, []);
 
   // Set initial GSAP states + ambient petal float
@@ -173,13 +205,13 @@ export default function HeroInvitation() {
               Together with their families
             </p>
             <p className="mt-8 font-script text-[52px] leading-[0.88] text-[rgba(78,61,66,0.88)] drop-shadow-[0_1px_0_rgba(255,255,255,0.78)] sm:text-[74px]">
-              {wedding.brideFirst}
+              {wedding.groomFirst}
             </p>
             <span className="my-4 font-display text-[22px] italic leading-none text-[rgba(133,92,58,0.58)]">
               weds
             </span>
             <p className="font-script text-[52px] leading-[0.88] text-[rgba(78,61,66,0.88)] drop-shadow-[0_1px_0_rgba(255,255,255,0.78)] sm:text-[74px]">
-              {wedding.groomFirst}
+              {wedding.brideFirst}
             </p>
             <div className="mt-6 h-px w-20 bg-[linear-gradient(90deg,transparent,rgba(133,92,58,0.18),transparent)]" aria-hidden="true" />
           </div>
@@ -241,13 +273,13 @@ export default function HeroInvitation() {
           {/* Couple names */}
           <h1 className="card-reveal flex flex-col items-center">
             <span className="font-script text-[64px] leading-none text-white [text-shadow:0_3px_24px_rgba(201,168,124,0.2)] sm:text-[88px] md:text-[104px]">
-              {wedding.brideFirst}
+              {wedding.groomFirst}
             </span>
-            <span className="font-display text-[22px] italic leading-none text-[rgba(201,168,124,0.68)] sm:text-[28px]">
+            <span className="mb-2 font-display text-[22px] italic leading-none text-[rgba(255,250,247,0.88)] [text-shadow:0_2px_16px_rgba(0,0,0,0.35)] sm:mb-3 sm:text-[28px]">
               weds
             </span>
             <span className="font-script text-[64px] leading-none text-white [text-shadow:0_3px_24px_rgba(201,168,124,0.2)] sm:text-[88px] md:text-[104px]">
-              {wedding.groomFirst}
+              {wedding.brideFirst}
             </span>
           </h1>
 
@@ -263,9 +295,6 @@ export default function HeroInvitation() {
             </p>
             <p className="mt-1 font-body text-[9px] font-semibold uppercase tracking-[0.2em] text-[rgba(240,217,191,0.66)] sm:text-[10px]">
               Sumuhurtham at {wedding.muhurthamTime}
-            </p>
-            <p className="mt-2 font-script text-[34px] leading-none text-[rgba(240,217,191,0.9)] [text-shadow:0_3px_22px_rgba(201,168,124,0.2)] sm:text-[42px]">
-              Save the date
             </p>
           </div>
 

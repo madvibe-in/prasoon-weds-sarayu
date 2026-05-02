@@ -26,9 +26,9 @@ export default function FloatingNavbar() {
         <a
           href="#hero"
           className="light-focus font-script text-[28px] leading-none text-[var(--plum)]"
-          aria-label={`${wedding.brideFirst} and ${wedding.groomFirst} wedding home`}
+          aria-label={`${wedding.groomFirst} and ${wedding.brideFirst} wedding home`}
         >
-          R ✦ A
+          P ✦ S
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary navigation">

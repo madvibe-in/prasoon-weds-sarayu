@@ -136,7 +136,7 @@ export default function WeddingDetails() {
             Timeline
           </h2>
           <p className="mx-auto mt-5 max-w-xl font-body text-[14px] leading-[1.8] text-[rgba(78,61,66,0.64)] md:text-[15px]">
-            Confirmed timings from the invitation card. Marriage and reception are both at the same venue.
+            Marriage and reception are both at the same venue.
           </p>
         </SectionReveal>
 

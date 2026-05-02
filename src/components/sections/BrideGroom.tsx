@@ -86,7 +86,7 @@ export default function BrideGroom() {
     }
 
     const ctx = gsap.context(() => {
-      gsap.from(".bride-card", {
+      gsap.from(".groom-card", {
         x: -60,
         opacity: 0,
         duration: 0.9,
@@ -97,7 +97,7 @@ export default function BrideGroom() {
         }
       });
 
-      gsap.from(".groom-card", {
+      gsap.from(".bride-card", {
         x: 60,
         opacity: 0,
         duration: 0.9,
@@ -138,8 +138,8 @@ export default function BrideGroom() {
         <SectionHeading label="The Souls" title="Two Hearts, One Story" accent="lavender" italic />
 
         <div className="people-grid grid gap-6 lg:grid-cols-[0.45fr_0.55fr] lg:items-start">
-          <PersonCard person={people[0]} className="bride-card" />
-          <PersonCard person={people[1]} className="groom-card lg:mt-16" />
+          <PersonCard person={people[0]} className="groom-card" />
+          <PersonCard person={people[1]} className="bride-card lg:mt-16" />
         </div>
 
         <SectionReveal className="mx-auto mt-16 max-w-3xl text-center">
